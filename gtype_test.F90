@@ -44,6 +44,7 @@ class(base_type), intent(in) :: extra
 external :: sub
 
 call sub(extra)
+
 end subroutine exter_exe
 
 end module type_mod

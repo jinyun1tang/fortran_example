@@ -1,31 +1,27 @@
-program pointer_test
-
-!test conclusion,
-!when b => a
-!array b and a have identical behavior and
-!should be cited identically.
+program main
 
 implicit none
 
-real*8, pointer :: a(:,:)
-real*8, pointer :: b(:,:)
-integer :: i,j
+ real*8, pointer :: a(:)
+ real*8, pointer :: b(:)
+
+ integer :: n
+
+ allocate(a(9))
+ allocate(b(9))
+ do n = 1, 9
+   a(n)=n*2.0
+ enddo 
+
+ b => (/a(3),a(4),a(7)/)
+ 
+ print*,b
 
 
-allocate(a(-1:2,-1:2))
+ do n = 1, 9
+   a(n)=n*3.0
+ enddo
 
-b => a
+ print*,b
 
-do j = -1, 2
-  do i = -1, 2
-    a(i,j) = i*j*2.
-  enddo
-  print*,(a(i,j),i=-1,2)
-enddo
-
-print*,'b'
-do j = -1, 2
- print*,(b(i,j),i=-1,2)
-enddo
-deallocate(a)
-end program pointer_test
+end program main

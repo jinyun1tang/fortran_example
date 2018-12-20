@@ -28,13 +28,13 @@ namelist /hist2d_fmt/    &
 
  print*,new_line('A')
  print*,quote
-nmlist='&hist2d_fmt'//new_line('A') &
-  //' fname='//quote//trim(fname1)//quote//new_line('A') &
-  //' units='//quote//trim(units1)//quote//new_line('A') &
-  //' avgflag='//quote//trim(avgflag1)//quote//new_line('A') &
-  //' type2d='//quote//trim(type2d1)//quote//new_line('A') &
-  //' long_name='//quote//trim(long_name1)//quote//new_line('A') &
-  //' default='//quote//trim(default1)//quote//new_line('A')
+nmlist='&hist2d_fmt' &
+  //' fname='//quote//trim(fname1)//quote &
+  //' units='//quote//trim(units1)//quote &
+  //' avgflag='//quote//trim(avgflag1)//quote &
+  //' type2d='//quote//trim(type2d1)//quote &
+  //' long_name='//quote//trim(long_name1)//quote &
+  //' default='//quote//trim(default1)//quote//' /'
 print*,nmlist
 
 read(nmlist, nml=hist2d_fmt, iostat=nml_error, iomsg=ioerror_msg)
